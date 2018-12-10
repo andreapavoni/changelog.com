@@ -54,6 +54,8 @@ services:
       - coveralls_repo_token
       - algolia_application_id
       - algolia_api_key
+    volumes:
+      - uploads:./priv/uploads
   proxy:
     image: thechangelog/proxy
     ports:
@@ -62,7 +64,8 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./nginx/vhost.d:/etc/nginx/vhost.d:ro
       - ./nginx/conf.d/changelog.conf:/etc/nginx/conf.d/changelog.conf:ro
-      - ./priv/uploads/:/var/www/uploads:ro
+      - uploads:/var/www/uploads:ro
 
 volumes:
   postgres:
+  uploads:
