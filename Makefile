@@ -242,7 +242,7 @@ algolia: $(LPASS)
 	echo "export ALGOLIA_API_KEY=$$($(LPASS) show --notes 1668162557359149736)"
 .PHONY: env-secrets
 env-secrets: postgres campaignmonitor github aws twitter app slack rollbar buffer coveralls algolia ## List secrets stored in LastPass (es)
-.PHONY: eps
+.PHONY: es
 es: env-secrets
 
 .PHONY: add-secret
